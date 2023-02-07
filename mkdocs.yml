@@ -52,6 +52,7 @@ nav:
         - "Get Data From Addons": BentoBox/Request-Handler-API---How-plugins-can-get-data-from-addons.md
 theme:
   name: material
+  font: false
   palette:
     scheme: slate
     primary: deep orange
@@ -60,26 +61,30 @@ theme:
     repo: fontawesome/brands/git-alt
 extra_css:
   - stylesheets/icons-minecraft-0.5.css
+  - stylesheets/harmonyos_sans.css
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/BentoBoxWorld
-      name: BentoBoxWorld on GitHub
+      name: BentoBoxWorld 的 GitHub
     - icon: fontawesome/brands/jenkins
       link: https://ci.bentobox.world
-      name: BentoBoxWorld on CodeMC CI
+      name: BentoBoxWorld 的 CodeMC CI
     - icon: fontawesome/brands/discord
       link: https://discord.bentobox.world
-      name: BentoBoxWorld on Discord
+      name: BentoBoxWorld 的 Discord
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UCPaNnfxhr1-wCy0KBs9PLdQ
-      name: BentoBoxWorld on YouTube
+      name: YouTube 上的 BentoBoxWorld
+    - icon: fontawesome/brands/bilibili
+      link: https://www.bilibili.com/video/BV1Qc411h7Ug?spm_id_from=333.999.section.playall
+      name: 哔哩哔哩教程视频
     - icon: fontawesome/solid/heart
       link: https://github.com/sponsors/tastybento
       name: Sponsor tastybento on GitHub Sponsors
     - icon: fontawesome/solid/pen
-      link: https://github.com/BentoBoxWorld/docs
-      name: Contribute to the documentation on GitHub
+      link: https://github.com/NetheriteTree/BentoboxDocs
+      name: 协助完善此翻译
 markdown_extensions:
   - attr_list
   - admonition
@@ -102,3 +107,31 @@ plugins:
   - minify:
       minify_html: true
   - macros
+  - i18n:
+      default_language: zh
+      languages:
+        en:
+          name: English
+          site_name: BentoBox World
+        zh:
+          name: 简体中文
+          site_name: BentoBox 帮助文档
+      nav_translations:
+        zh:
+          "Home": "首页"
+          "What does BentoBox do?": "BentoBox 功能"
+          "Team Handling": "团队系统"
+          "Protection": "保护系统"
+          "FAQ": "常见问题"
+          "Game Modes": "游戏模式"
+          "Addons": "扩展"
+          "Tutorials – Generic": "插件基础"
+          "How To Install": "安装教程"
+          "Set a BentoBox world as the server's default world": "将 BentoBox 世界设为服务器默认世界"
+          "Database transition": "迁移数据"
+          "Tutorials – API": "API 文档"
+          "Create an Addon": "制作扩展"
+          "Config API": "Config API"
+          "Database API": "Database API"
+          "Metadata API": "Metadata API"
+          "Get Data From Addons": "获取扩展数据"
