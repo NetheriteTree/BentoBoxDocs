@@ -102,8 +102,6 @@ markdown_extensions:
       permalink: "#"
 plugins:
   - search
-  - git-revision-date-localized:
-      type: datetime
   - minify:
       minify_html: true
   - macros
@@ -135,3 +133,5 @@ plugins:
           "Database API": "Database API"
           "Metadata API": "Metadata API"
           "Get Data From Addons": "获取扩展数据"
+  - git-revision-date-localized:
+      type: datetime
