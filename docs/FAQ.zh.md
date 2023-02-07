@@ -154,7 +154,7 @@ use-own-generator: false
 根据你的个性化配置, 语言以及你所使用的 BentoBox 版本, 名称, 图标和描述或许并不一样.
 但你一定会轻松找到该选项!
 
-![image](https://p0.meituan.net/dpplatform/d5dfeca1287dd040351b756b1ed1c15120912.png)  
+![image](https://edu-image.nosdn.127.net/B74D1BCA1CEC1B2A9AC87F00BE7B2A43.png)  
 *BSkyBlock 的清除超平坦区块选项*.
 
 此功能将会**逐渐重新生成超平坦区块**.
