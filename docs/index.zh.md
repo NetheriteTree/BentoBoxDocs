@@ -1,6 +1,6 @@
 # BentoBox
 
-BentoBox 是一个领域生存类游戏的核心插件，它可以提供像 SkyBlock, AcidIsland, OneBlock 那样的游戏模式. BentoBox 是集领域地形生成, 团队管理, 领域保护等功能于一体的插件. 更多功能还可以通过添加 BentoBox 扩展来实现 (你可以理解为迷你插件). 服主们可以自由地对插件进行个性化配置.
+BentoBox 是一个岛屿生存类游戏的核心插件，它可以提供像 SkyBlock, AcidIsland, OneBlock 那样的游戏模式. BentoBox 是集岛屿地形生成, 团队管理, 岛屿保护等功能于一体的插件. 更多功能还可以通过添加 BentoBox 扩展来实现 (你可以理解为迷你插件). 服主们可以自由地对插件进行个性化配置.
 
 ## 赞助 BentoBox
 
@@ -30,7 +30,7 @@ BentoBox 是一个领域生存类游戏的核心插件，它可以提供像 SkyB
     - [Level 权限列表](addons/Level/Permissions)
     - [Limits 权限列表](addons/Limits/Permissions)
     - [Warps 权限列表](addons/Warps/Permissions)
-- [领域保护, 属性 & 排名](BentoBox/Island-Protection,-Flags-&-Ranks)
+- [岛屿保护, 属性 & 排名](BentoBox/Island-Protection,-Flags-&-Ranks)
     - [属性](BentoBox/Flags)
     - [排名](BentoBox/Island-Protection,-Flags-&-Ranks#ranks)
 - [Placeholders](BentoBox/Placeholders)
