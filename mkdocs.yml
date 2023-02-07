@@ -135,3 +135,4 @@ plugins:
           "Get Data From Addons": "获取扩展数据"
   - git-revision-date-localized:
       type: datetime
+      timezone: Asia/Shanghai
