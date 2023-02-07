@@ -1,2 +1,2 @@
-# docs
-Documentation
+# BentoBox docs
+Chinese translation of Bentobox Documentation.
