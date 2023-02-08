@@ -85,6 +85,9 @@ extra:
     - icon: fontawesome/solid/pen
       link: https://github.com/NetheriteTree/BentoboxDocs
       name: 协助完善此翻译
+  analytics:
+    provider: google
+    property: G-D07WH8Y481
 markdown_extensions:
   - attr_list
   - admonition
