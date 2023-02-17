@@ -430,6 +430,6 @@
   src: url('https://s1.hdslb.com/bfs/static/jinkela/long/font/HarmonyOS_Regular.a1.woff2') format('woff2');
   unicode-range: U+21-7e,U+a4,U+a7-a8,U+b0-b1,U+b7;
 }
-body{
-  font-family: 'HarmonyOS_Regular' !important;
+body, input {
+  font-family: "HarmonyOS_Regular", -apple-system, Helvetica, Arial, sans-serif;
 }

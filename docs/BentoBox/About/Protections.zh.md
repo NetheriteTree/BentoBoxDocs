@@ -1,130 +1,130 @@
-# Protection
-BentoBox provides a full-featured world and island protection system for island GameModes.  Configuration is done in-game via the admin or player settings, and out of game via permissions and config files.
+# 保护
+BentoBox 为游戏模式提供了一个全方位的世界和岛屿保护系统. 在游戏中可以通过管理员或玩家菜单来设置保护, 在游戏外也可以通过权限和配置文件来设置保护.
 
-## What is Protection?
-Multiplayer Minecraft provides no built-in protection for the map except for the area immediately around spawn. As a result, any random player can damage or "grief" someone else's area that they have put time into. With BentoBox, players have their own islands and the protection system prevents or limits what other players can do in this space.
+## 保护有什么用?
+Minecraft 多人游戏只提供了出生点附近的保护，这就导致任何玩家都可以破坏或占领其他玩家辛苦建造的家园. 而 BentoBox 则向玩家提供了保护自己岛屿的系统, 玩家可以阻止或限制其他人对岛屿的行为.
 
-Protection also extends to limiting which commands can be executed. For example, an admin can prevent teleportation commands from being run when a player is falling to prevent them cheating fall damage. 
+使用这个保护系统还可以限制指令的执行. 比如, 阻止玩家在掉落时进行传送从而避免他们绕过摔落伤害. 
 
-### What about WorldGuard?
-WorldGuard is a protection plugin that also provides protection functions. BentoBox does not use WorldGuard and it is recommended that it is turned off in BentoBox worlds to avoid clashes. Admins can use WorldGuard if they like in BentoBox worlds, but they should consider that there may be clashes between the two systems.
+### 关于 WorldGuard?
+WorldGuard 是另一个提供保护功能的插件. BentoBox 并不依赖于 WorldGuard 并且建议在 BentoBox 世界中禁用它来避免冲突. 如果确实需要，管理员可以在 BentoBox 世界中使用 WorldGuard, 但是要考虑好两者之间可能出现的冲突.
 
-## How is Protection Managed In BentoBox?
-BentoBox uses the concept of "flags" to manage protection settings. There are three types of flags:
+## 怎么调整 BentoBox 保护设置?
+BentoBox 使用属性来管理保护设置. 共有三种属性:
 
- 1. **Protection flags** - these are explicitly designed to allow or disallow some facet of world or island protection.
- 2. **Settings flags** - these are generally true/false or on/off settings that can be applied. They may provide protection.
- 3. **World Settings flags** - these are settings flags that determine how things operate in the game world in general.
+ 1. **保护设置** - 用于设置是否启用某些世界或岛屿保护.
+ 2. **基本设置** - 用于管理某些功能的开关. 可能包含保护.
+ 3. **世界设置** - 用于设置整个世界的保护属性.
 
-### Protected areas
-BentoBox has two areas of protection:
+### 保护区域
+BentoBox 有两类保护区域:
 
- 1. The player's island
- 2. Everywhere else, the rest of the world
+ 1. 玩家的岛屿
+ 2. 岛屿以外的整个世界
 
-These areas are generally handled independently, but certain world settings may apply to the player's island. Island owners generally have the ability to set the settings for their own island and admins configure the settings for everywhere else. Admins also can determine the default settings for an island to have by adjusting the game mode's `config.yml`.
+这两个区域一般是相互独立的, 但是部分世界保护设置同样会对玩家岛屿生效. 岛主一般只能设置自己岛屿的保护选项而管理员则可以设置所有保护选项. 管理员还可以通过编辑游戏模式配置文件来指定默认岛屿保护设置.
 
-The player's island protection area is set by default in the game mode's `config.yml` and can be expanded or reduced in-game via admin commands or by the player having a permission. The maximum protection size is governed by the distance between islands, which is also set in the game mode `config.yml`.
+玩家的默认岛屿保护范围可以在 `config.yml` 中设置并且可以通过管理员指令或者权限来增加或减少. 最大保护范围与岛屿间距有关, 岛屿间距可以在游戏模式配置文件中进行设置.
 
-### Changing Settings
-BentoBox provides an island settings GUI to island owners that enables them to see the island settings. Admins can reduce the island settings visible via the admin settings GUI. Admins can allow players to change settings via permissions. The default is that players can change all the settings they can see.
+### 修改设置
+BentoBox 给岛主提供了一个岛屿设置菜单. 管理员可以通过管理员设置菜单调整岛主可以修改的设置. 管理员可以通过权限来限制玩家可以修改的设置. 默认情况下玩家可以修改所有岛屿设置.
 
-## Protection Provided
-There are a lot of protection flags and new ones are added. This section covers the most important levels of protection. Protections can be restricted for the various ranks available, i.e.:
+## 关于保护
+插件提供了很多保护属性并会及时更新新版本的保护属性. 下面的列表是保护等级. 不同的等级有着不同的保护限制:
 
- - Visitor
- - Coop
- - Trusted
- - Member
- - Sub-Owner
+ - 访客
+ - 合作者
+ - 可信者
+ - 成员
+ - 副岛主
 
-Owners can always do everything.
+岛主不受保护限制.
 
-Every time a player tries to do something in a protected area, BentoBox will determine if they have the right to do it or not. If they do not, they will be blocked from doing it and depending on the type of activity told that they cannot do it. 
+每当一个玩家想要在保护区域内行动时, BentoBox 将判断他们是否有那样做的权限. 如果没有, 将会阻止他们的行为并告知他们原因. 
 
-### Finding out why something can or cannot be done
-BentoBox provides an admin tool to explain why something can or cannot be done. It is the admin `why <player>` command, e.g., `/bsb why tastybento`. When this is used, the console will record the reason why the player can do something or cannot. This can help admins understand their settings. Also, if the why command says that a player can do something but in-game they cannot, then that indicates another plugin (or the server itself) is preventing the action.
+### 如何寻找受保护限制的原因
+BentoBox 提供了一个管理员工具来查找某行为不能被完成的原因. 该指令为 `why <player>`, 比如, `/bsb why tastybento`. 当使用此指令时, 控制台将会显示玩家受保护限制的原因. 这可以帮助管理员理解某些保护设置. 当然, 如果该指令反馈玩家的行为并未遭到插件阻止, 则说明是另一个插件 (或是服务器本身) 在阻止该行为.
 
-### Protections
-* Breaking and Placing Blocks
-* Block Interaction
-  * Containers
-  * Anvils
-  * Buttons
-  * Beds
-  * Doors and trap doors
-  * Beacons
-  * Brewing stands
-  * Cauldrons
-  * Barrels
-  * Beehives
-  * Bee nests
-  * Composters
-  * Furnaces, smokers, and campfires
-  * Enchanting tables
-  * Jukeboxes and note blocks
-  * Crafting tables
-  * Levers
-  * Redstone-related blocks
-  * Dragon Eggs
-  * Item Frames
-  * Berry picking
-  * Cake eating
-  * Gate usage
-* Breeding
-* Bucket use
-* Dye use
-* Egg use
-* Elytra use
-* Interaction with:
-  * Vehicles, including boats, minecrarts and ridable animals like horses, etc.
-  * Villager trading
-  * Name tag protection
-* Item or experience pickup or item dropping
-* Fire-related: prevention of ignition, spreading, burning, lightning-related, etc.
-* Damaging or hurting monsters or animals
-* Leash use
-* Lectern use
-* Physical interactions
-* Portal use
-* Sheering
-* Teleportation, e.g., using chorus fruit or ender pearls
-* Throwing of items, including potions
-* TNT or other explosion protections
+### 保护列表
+* 方块的放置与破坏
+* 方块交互
+  + 容器
+  + 铁砧
+  + 按钮
+  + 床
+  + 门与活板门
+  + 信标
+  + 酿造台
+  + 炼药锅
+  + 木桶
+  + 蜂箱
+  + 蜂巢
+  + 堆肥桶
+  + 熔炉、烟熏炉和营火
+  + 附魔台
+  + 唱片机和音符盒
+  + 工作台
+  + 拉杆
+  + 红石相关方块
+  + 龙蛋
+  + 物品展示框
+  + 甜浆果丛
+  + 蛋糕
+  + 栅栏门
+* 繁殖
+* 使用桶
+* 使用染料
+* 使用鸡蛋
+* 使用鞘翅
+* 实体交互:
+  + 载具, 包括船、矿车以及可骑乘动物比如马等.
+  + 村民交易
+  + 命名牌
+* 物品拾起或丢弃，经验拾起
+* 火焰相关: 阻止点火、火焰蔓延、烧毁、闪电相关等.
+* 伤害怪物或动物
+* 使用拴绳
+* 使用讲台
+* 物理交互
+* 使用传送门
+* 使用剪刀
+* 传送, 例如, 使用紫颂果或末影珍珠
+* 投掷物品, 包括药水
+* TNT 和其它爆炸
 
-### Island Settings
+### 岛屿设置
 
-These are settings that an owner can change for their island. Admins should configure permissions appropriately to allow or disallow them.
+以下是岛主可以修改的岛屿设置. 管理员可以通过权限来允许或禁止岛主修改这些设置.
 
- - PVP - Player vs Player - see the PVP Section below
- - Leaf decay - determines whether leaf blocks decay or not
- - Mob spawning - handles whether monsters or animals should spawn on the island, either naturally or due to spawner blocks
+ - PVP - 玩家互相伤害 - 见下方 PVP 部分
+ - 树叶凋落 - 树叶是否会凋落
+ - 生物生成 - 设置怪物和动物是否会在岛屿上生成, 包括自然生成和刷怪笼生成。
  
-### World Settings
-These settings are for admins to determine. Players may be able to view them as well in a read-only mode. This may help players understand what type of server they are playing on and what is allowed or not.
+### 世界设置
+这些设置只能由管理员来调整. 玩家只能在只读模式下看到这些设置. 这可以帮助玩家了解他们所在服务器的规则.
 
- - Chest explosion damage - this protects chests from being damaged by explosions. Explosions could be due to Creepers, TNT cannons, Wither or Ghast explosions, etc. The default is to prevent chests from being broken. Although this provides good protection for players, it does provide a somewhat exploitable system whereby indestructible rooms can be made with chests, e.g., to hold a Wither. Admins should consider the tradeoff.
- - Cleaning up a super-flat world - in rare situations, the world generation of a BentoBox world may not be running or malfunction. As most BentoBox worlds are officially "super-flat" worlds according to the server, new world chunks will be created as super-flat chunks. These are a few layers of blocks starting at y=0 and covered in grass. Admins can recover from a world where super-flat chunks exist by switching this setting on. It will detect super-flat chunks and try to convert them to the game mode's chunk type, e.g. void. This process can lag the server so it should not be left on unless it is required. Recovered chunks are reported in the console log.
- - Coarse Dirt Tilling Prevention - this setting is to prevent players from making dirt out of coarse dirt. In a number of BentoBox game modes, dirt is highly prized because it cannot be crafted, but it can be used to grow crops, feed sheep, etc. The Level addon will score dirt blocks higher than other blocks for this reason. Dirt is rare and given out sparingly. Coarse dirt enables dirt to be created by mixing it with gravel. If the Game Mode allows players to obtain gravel easily, e.g., via the vanilla Nether world, then coarse dirt making can be exploited to make dirt. The default setting is to disallow coarse dirt tilling, but it can probably be allowed so long as gravel is not too readily available.
- - Creeper protection - Creepers explode and BentoBox provides a few ways to handle them
-     -  Prevent damage from the explosion - this will switch off the explosive damage of a creeper. Creepers are the number one way that an island can be destroyed and admins may not want to deal with players crying about their island being blown up. However, preventing this makes the game a lot easier.
-     - Prevent visitors from lighting creepers on other islands - this is a type of griefing where a visitor can use flint & steel to prime a creeper and make it explode with the purpose of getting access to parts of another island, or just for fun. BentoBox is able to identify whether the player is a visitor or not and prevent this action.
-- Ender Chests - access and crafting of Ender Chests are prevented by default because they provide a method for players to obtain items from other worlds. If the admin has a per-world Ender Chest plugin, then this setting can be switched off.
-- Enderman protection - Endermen will randomly pick up blocks from islands. BentoBox. As this can lead to players complaining to admins about missing blocks, there is a setting to prevent this.
-- Geo-Limiting of mobs - Some mobs, especially flying mobs can be spawned on one island and then potentially move outside of that island and enter other player's islands. For destructive mobs like the Wither, this is undesirable. This setting prevents the specified mobs from exiting the island. If they do, they are removed from the game.
-- Visitor Protection - part of the fun of a multi-player game is having other players visit your island and see all the hard work you have done. However, some players see visitors as prey and try to develop ways to kill or harm them. BentoBox by default protects visitors from most harm. All types of Minecraft damage can be switched off. If a visitor falls into the void, they can be teleported to safety. Admins can configure what type of damage is prevented via the admin settings menu.
-- Item frame protection - these have their own protection because they can be used in a variety of ways. The default is to protect them from being damaged and dropping the item in them. 
-- Global mob spawning limitations - admins can use this setting to decide which mob types can spawn in the world. For example, Phantoms can be switched off. This setting overrides any other settings or spawning mechanisms, e.g. spawn eggs or spawner blocks.
-- Liquid management - players can abuse the ability of liquids to flow outside of their protection zone and cause blocks to form, e.g., by letting lava and water mingle to make cobblestone. This setting stops the liquids from flowing.
-- Natual Mob Spawning Outside Of Islands - this setting can prevent mobs from spawning outside of island boundaries. This can help concentrate mob spawning to be within islands. For worlds like AcidIsland, this is not recommended because it appears unnatural.
-- Obsidian scooping - one classic newbie mistake on SkyBlock is to turn your one bucket of lava into obsidian by accidentally having it touch water in the wrong way. This is very common when players make a cobblestone generator and get it wrong. This setting by default enables a "cheat" that enables the player to use a bucket on a block of obsidian to return it to lava. This helps prevent players from reseting their island or bothering the admin for more lava. BentoBox checks that the obsidian block is a single block and that there are no other obsidian blocks close to it (+/- 2 blocks) before allowing the scooping. This limits exploitation of this cheat.
-- Offline Growth Management - in general, plants will not grow on a BentoBox island unless the chunk is loaded on the server. Therefore, when players are offline, the plants do not usually grow. However, as visitors may visit an island and cause the chunks to be loaded, the plants can grow and mature. If players are complaining about this edge case, maybe because they have a Redstone machine that handles harvesting, then plant growth can be switched off when island members are not present.
-- Offline Redstone Management - similar to the plant growth option, it may be desirable to disable all Redstone operations when team members are not present. This enables that to happen.
-- Piston management - pistons can be used to create self-powered machines that fly through the air and invade other player's islands. This prevents pistons from operating (pushing) if they are outside the island's protection area. The default is for this prevention to be active because it is a favorite exploit of players.
-- Remove mobs on teleport - this setting will clear the area of any hostile mobs when a player teleports. Admins can adjust what mobs will not be removed via the game mode's `config.yml` file. This feature helps prevent instant or surprise deaths due to a player teleporting to their home. The default is on.
-- Spawner block protection - For some reason, spawner blocks are often given to SkyBlock players by admins, either as a reward or as a result of a purchase. However, spawner blocks have a vanilla function that enables the mob to be spawned to be changed by a player tapping it with a spawn egg. This prevents that function so that spawner blocks stay the same time. BentoBox also prevents the use of the `/spawner` or related commands by visitors to an island that can be used to change the type of spawner.
-- Tree growth handling - This prevents trees from growing outside the island's protection range. If trees can do that, it can enable players to intrude into adjacent islands or result in blocks that they cannot access. 
-- Wither protection - the Wither has the ability to destroy so much so this flag enables admins to limit the damage the Wither can do.
+ - 箱子爆炸保护 - 这个选项可以防止箱子被爆炸破坏. 包括苦力怕爆炸、TNT 爆炸和凋灵恶魂的火球爆炸等. 这个保护的本意是防止箱子被破坏. 尽管这对玩家来说是有利的保护, 但是它却可以被用来搭建一个无法被破坏的箱子做成的小屋，比如用来困住凋灵. 管理员应该权衡好利弊再启用此设置.
+ - 清理超平坦区块 - 在某种情况下, BentoBox 的世界生成可能并没有正常运行. 而 BentoBox 的世界在服务器看来就是超平坦世界, 新的世界区块将会生成超平坦地形. 超平坦地形由几层方块组成，最上层被草方块覆盖. 管理员可以通过打开此设置来修复此类世界. 此设置将检测超平坦区块并尝试将他们转换为游戏模式的区块类型, 比如虚空. 这个检测将会造成服务器卡顿，所以除非必须要用，不要把此设置打开. 控制台将会显示被恢复的区块.
+ - 阻止砂土变成泥土 - 此设置将阻止玩家使用砂土来刷泥土. 在许多 BentoBox 游戏模式中, 因为泥土无法合成, 所以是非常稀有的, 而泥土又是种植作物和养殖羊群等必需的方块. 正因如此岛屿等级扩展中泥土的分数才会高于其它方块. 泥土很稀缺. 但是砂土却可以与沙砾一起合成泥土. 如果游戏模式中获得沙砾很容易（比如在原版下界中）, 那么玩家将有可能刷泥土. 默认设置下将阻止玩家用锄将砂土变为泥土, 但是如果沙砾也不太容易获得的话，关闭此设置也没多大影响.
+ - 苦力怕保护 - BentoBox 提供了一些方法来处理苦力怕爆炸
+     - 阻止爆炸破坏 - 此设置将关闭苦力怕的爆炸破坏. 苦力怕是最有可能破坏岛屿的生物，管理员应该也不想看到玩家天天抱怨岛屿被苦力怕炸掉. 所以, 阻止苦力怕的爆炸破坏还是有必要的.
+     - 阻止访客引爆苦力怕 - 这可以阻止访客使用打火石引爆苦力怕.
+- 末影箱保护 - 由于使用末影箱可以将其它世界的物品带到岛屿中，默认情况下使用和合成末影箱会被阻止. 如果服务器有一个世界隔离的末影箱的话, 可以把此设置关闭.
+- 末影人保护 - 末影人会随机搬起岛屿上的方块. 为避免玩家抱怨岛屿方块丢失, 此设置可以阻止末影人搬起岛屿方块.
+- 生物区域限制 - 部分可以飞行的生物可能会离开其出生的岛屿并飞到其他玩家的岛屿内. 如果是像凋灵这样的破坏性生物的话, 这将造成很大影响. 此设置将阻止指定生物离开岛屿。如果他们离开了岛屿, 将会被清除.
+- 访客保护 - 多人游戏的一大乐趣就是让其他玩家参观你投入了大量精力的岛屿. 但是, 一些不怀好心的玩家可能会想一些阴招来杀掉或伤害访客. BentoBox 默认会阻止访客的大部分伤害. 所有原版伤害类型都可以被关闭. 如果访客掉进了虚空, 他们将被安全地传送回来. 管理员可以在管理员菜单中设置阻止访客受到的伤害类型.
+- 物品展示框保护 - 因为物品展示框有多种使用方法，所以它有着独立的保护方案。默认情况下会阻止其被破坏或取出展示的物品. 
+- 全局生物生成限制 - 管理员可以使用此设置来设置世界中可以生成的生物类型. 比如, 关闭幻翼的生成. 此设置将覆盖其它设置和生成机制, 比如刷怪蛋和刷怪笼.
+- 流体管理 - 玩家可以利用流体的特性来在岛屿保护范围外创建方块, 例如, 用岩浆和水生成圆石. 此设置将阻止流体流动.
+- 岛屿外生物生成 - 此设置将阻止生物在岛屿范围外生成. 这有助于将生物集中生成在岛屿上. 但是像 AcidIsland 这样的世界则不建议打开此设置, 否则将导致生物生成显得不自然.
+- 黑曜石变回岩浆 - 将仅有的一桶岩浆变成了黑曜石是一个经典的新手错误. 因为玩家总会做出一个不太正确的刷石机，所以这种情况很常见. 此设置将允许玩家使用桶将黑曜石重新变为岩浆. 这将避免玩家不停地重置岛屿或是向管理员索要岩浆. BentoBox 会在确认该黑曜石是唯一的（2 格范围内）后允许玩家重新获得岩浆. 这可以限制玩家使用此方法来作弊.
+- 离线生长管理 - 一般来说, 植物将不会在岛屿区块被服务器卸载后继续生长. 因此, 当玩家下线后, 植物将不会生长. 但是, 因为岛屿可以被访客访问从而导致区块被加载, 植物就会继续生长. 如果有玩家抱怨这种情况（可能因为他们有一个红石收割机）, 管理员可以在岛屿没有成员在线时关闭植物生长.
+- 离线红石管理 - 与离线生长类似, 此设置将在岛屿无成员在线时关闭红石的运行.
+- 活塞管理 - 活塞可以用来制造永动飞行机，玩家将可能入侵其它玩家的岛屿。此设置将阻止移动到岛屿范围外的活塞运行. 默认情况下此设置是启用的，因为这是玩家最爱使用的一种漏洞.
+- 清理传送终点的生物 - 此设置将清理玩家传送终点周围的地对生物. 管理员可以在游戏模式的 `config.yml` 文件中设置要被清理的生物类型. 此设置可以避免传送时意外受到伤害. 此设置默认开启.
+- 刷怪笼保护 - 在某些服务器中, 玩家可能会通过奖励或购买获得刷怪笼. 但是, 刷怪笼可以通过使用刷怪蛋右键来更改刷怪类型. 此设置将阻止这种行为。BentoBox 同时也会阻止访客使用类似 `/spawner` 的指令来修改刷怪笼类型.
+- 树木生长控制 - 此设置将阻止树木长到岛屿保护范围以外. 如果树木可以长到岛屿范围外, 将会给玩家提供一个入侵其他岛屿的漏洞，或是出现他们无法交互的方块. 
+- 凋灵保护 - 由于凋灵的高破坏性，此设置允许管理员限制凋灵可以造成的破坏.
 
  
 

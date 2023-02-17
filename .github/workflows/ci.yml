@@ -16,4 +16,5 @@ jobs:
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-macros-plugin
       - run: pip install mkdocs-static-i18n
+      - run: pip install jieba
       - run: mkdocs gh-deploy --force
