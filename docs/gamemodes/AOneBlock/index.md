@@ -216,7 +216,7 @@ In the chests file, it just has the phase number and a chests section.
         If CHEST is listed in the blocks section, then it will be randomly filled according to this section. 
         You can define as many chests as you like. The first number is a unique chest number.
         Then follows the chest contents that includes the slot number and the item stack contents. 
-        Finally, there is the chest's rarity, which can be COMMON, UNCOMMON, RARE or EPIC. 
+        Finally, there is the chest's rarity, which can be COMMON, UNCOMMON, RARE or EPIC. The chances for them are hard-codded with values: 62%, 25%, 9%, and 4%.
         
         The best way to set chests is to do it in game.
         Fill a chest with the contents you want and then while looking at it enter the command `/[admin_cmd] setchest <phase> <rarity>` where <phase> is the name of the phase and rarity is the rarity. Use Tab Complete to see the options. The chest will be automatically added to the oneblocks.yml file and be ready to use. Deleting chests must be done by editing the oneblocks.yml file for now and reloading the addon.
@@ -402,8 +402,10 @@ By default, BentoBox GameMode addons comes with [default placeholders set](../..
     It's whatever you want it to be! 
 
 ??? question "How to use holograms?"
-    AOneBlock uses [Holographic Displays](https://dev.bukkit.org/projects/holographic-displays) for holograms. 
-    You need to install this plugin to use holograms sections! 
+    AOneBlock uses [Holographic Displays](https://dev.bukkit.org/projects/holographic-displays) for holograms if you use 1.12.3 and below.
+    You need to install this plugin to use holograms sections!
+    
+    However, since 1.13 version and Minecraft 1.19.4, you do not need any extra plugins for holograms. They will be displayed using Minecraft Text Entity.
 
 ??? question "Should I use the Levels addon?"
     It's up to you, but if you do be aware that levels could get high because players have an infinite block. 
