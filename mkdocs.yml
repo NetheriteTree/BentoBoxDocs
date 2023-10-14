@@ -109,33 +109,36 @@ plugins:
       minify_html: true
   - macros
   - i18n:
-      default_language: zh
+      docs_structure: suffix
       languages:
-        en:
+        - locale: en
           name: English
-          site_name: BentoBox World
-        zh:
+          build: true
+          default: true
+          site_name: "BentoBox World"
+        - locale: zh
           name: 简体中文
-          site_name: BentoBox 帮助文档
-      nav_translations:
-        zh:
-          "Home": "首页"
-          "What does BentoBox do?": "BentoBox 功能"
-          "Team Handling": "团队系统"
-          "Protection": "保护系统"
-          "FAQ": "常见问题"
-          "Game Modes": "游戏模式"
-          "Addons": "扩展"
-          "Tutorials – Generic": "插件基础"
-          "How To Install": "安装教程"
-          "Set a BentoBox world as the server's default world": "将 BentoBox 世界设为服务器默认世界"
-          "Database transition": "迁移数据"
-          "Tutorials – API": "API 文档"
-          "Create an Addon": "制作扩展"
-          "Config API": "Config API"
-          "Database API": "Database API"
-          "Metadata API": "Metadata API"
-          "Get Data From Addons": "获取扩展数据"
+          build: true
+          default: false
+          site_name: "BentoBox 帮助文档"
+          nav_translations:
+              "Home": "首页"
+              "What does BentoBox do?": "BentoBox 功能"
+              "Team Handling": "团队系统"
+              "Protection": "保护系统"
+              "FAQ": "常见问题"
+              "Game Modes": "游戏模式"
+              "Addons": "扩展"
+              "Tutorials – Generic": "插件基础"
+              "How To Install": "安装教程"
+              "Set a BentoBox world as the server's default world": "将 BentoBox 世界设为服务器默认世界"
+              "Database transition": "迁移数据"
+              "Tutorials – API": "API 文档"
+              "Create an Addon": "制作扩展"
+              "Config API": "Config API"
+              "Database API": "Database API"
+              "Metadata API": "Metadata API"
+              "Get Data From Addons": "获取扩展数据"
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
